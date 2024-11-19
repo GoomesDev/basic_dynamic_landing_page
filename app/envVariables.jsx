@@ -10,3 +10,7 @@ export const headerTextColor = process.env.NEXT_PUBLIC_HEADER_TEXT_COLOR
 export const submitText = process.env.NEXT_PUBLIC_SUBMIT_TEXT
 export const submitTextColor = process.env.NEXT_PUBLIC_SUBMIT_TEXT_COLOR
 export const submitBackgroundColor = process.env.NEXT_PUBLIC_SUBMIT_BACKGROUND_COLOR
+
+// INPUT'S
+export const emailPlaceholder = process.env.NEXT_PUBLIC_EMAIL_PLACEHOLDER
+export const namePlaceholder = process.env.NEXT_PUBLIC_NAME_PLACEHOLDER

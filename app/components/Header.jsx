@@ -1,3 +1,5 @@
+import { Cellphone } from "./Cellphone"
+
 export const Header = ({backgroundColor, textColor, text}) => {
 
     return (
@@ -18,8 +20,8 @@ export const Header = ({backgroundColor, textColor, text}) => {
             <span
                 style={{
                     color: textColor,
-                    maxWidth: '40%',
-                    fontSize: '22px',
+                    maxWidth: '34%',
+                    fontSize: '26px',
                     position: 'absolute',
                     left: '46px',
                     bottom: '46px',
@@ -28,6 +30,7 @@ export const Header = ({backgroundColor, textColor, text}) => {
             >
                 {text ?? 'Exemplo de texto'}
             </span>
+            <Cellphone image={null}/>
         </div>
     )
 }
