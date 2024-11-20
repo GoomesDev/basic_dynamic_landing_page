@@ -11,16 +11,37 @@ import {
 import { InputAdornment } from "@mui/material"
 import EmailIcon from '@mui/icons-material/Email'
 import PersonIcon from '@mui/icons-material/Person'
+import { sendContact } from "../service/actions"
+import { useState } from "react"
 
 export const Form = ({
 
 }) => {
+    const [contact, setContact] = useState({
+        email: '',
+        name: ''
+    })
 
+    const handleChange = (field, value) => {
+        setContact(prevState => ({
+            ...prevState,
+            [field]: value
+        }))
+    }
+
+    const handleSubmit = async() => {
+        try {
+            const response = await sendContact(contact)
+            console.log("Contato enviado com sucesso:", response)
+        } catch (error) {
+            console.error("Erro ao enviar contato:", error)
+        }
+    }
 
     return (
         <FormContainer elevation={10}>
             <Input 
-                onChange={null}
+                onChange={e => handleChange('email', e.target.value)}
                 placeholder={emailPlaceholder}
                 InputProps={{
                     endAdornment: (
@@ -31,7 +52,7 @@ export const Form = ({
                 }}
             />
             <Input 
-                onChange={null}
+                onChange={e => handleChange('name', e.target.value)}
                 placeholder={namePlaceholder}
                 InputProps={{
                     endAdornment: (
@@ -43,6 +64,7 @@ export const Form = ({
             />
             <Submit 
                 variant="contained"
+                onClick={handleSubmit}
             >
                 {submitText}
             </Submit>

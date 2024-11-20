@@ -1,3 +1,7 @@
+// CONNECTIONS
+export const serviceApiAdress = process.env.NEXT_PUBLIC_SERVICE_API_ADRESS
+export const serviceApiPort = process.env.NEXT_PUBLIC_SERVICE_API_PORT
+
 // COLOR'S
 export const mainColor = process.env.NEXT_PUBLIC_MAIN_COLOR
 export const secondaryColor = process.env.NEXT_PUBLIC_SECONDARY_COLOR
