@@ -17,6 +17,10 @@ import { useState } from "react"
 export const Form = ({
 
 }) => {
+    const [leads, setLeads] = useState({
+        subscribers: null,
+        position: null
+    })
     const [contact, setContact] = useState({
         email: '',
         name: ''
@@ -33,10 +37,16 @@ export const Form = ({
         try {
             const response = await sendContact(contact)
             console.log("Contato enviado com sucesso:", response)
+            setLeads(prevState => ({
+                ...prevState,
+                subscribers: response?.updatedAddressBooks[0]?.all_email_qty
+            }))
         } catch (error) {
             console.error("Erro ao enviar contato:", error)
         }
     }
+
+    console.log({leads})
 
     return (
         <FormContainer elevation={10}>
